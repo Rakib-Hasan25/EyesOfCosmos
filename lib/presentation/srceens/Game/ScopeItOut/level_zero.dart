@@ -56,16 +56,16 @@ class _LevelZeroState extends State<LevelZero> {
                 },
                 child: Container(
                   width: MediaQuery.of(context).size.width * 0.4,
-                  height: controller?170:150,
+                  height: controller ? 170 : 150,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    image: DecorationImage(
+                    image: const DecorationImage(
                       image: AssetImage(
                           'assets/images/gamingsection/replectiveTelescope.png'), // Replace with your asset image
                       fit: BoxFit.cover,
                     ),
                   ),
-                  child: Stack(
+                  child: const Stack(
                     children: <Widget>[
                       Positioned(
                         left: 20,
@@ -83,7 +83,7 @@ class _LevelZeroState extends State<LevelZero> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 20,
               ),
               InkWell(
@@ -93,16 +93,16 @@ class _LevelZeroState extends State<LevelZero> {
                 },
                 child: Container(
                   width: MediaQuery.of(context).size.width * 0.4,
-                  height: controller?150:170,
+                  height: controller ? 150 : 170,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    image: DecorationImage(
+                    image: const DecorationImage(
                       image: AssetImage(
                           'assets/images/gamingsection/refractivetelescope.png'), // Replace with your asset image
                       fit: BoxFit.cover,
                     ),
                   ),
-                  child: Stack(
+                  child: const Stack(
                     children: <Widget>[
                       Positioned(
                         left: 20,
@@ -122,11 +122,11 @@ class _LevelZeroState extends State<LevelZero> {
               )
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Container(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             width: MediaQuery.of(context).size.width * 1,
             height: MediaQuery.of(context).size.height * 0.5,
             child: SingleChildScrollView(
@@ -134,17 +134,18 @@ class _LevelZeroState extends State<LevelZero> {
                 children: [
                   controller
                       ? Column(
-                        // mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                          // mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
+                            const Text(
                               "Reflective Telescope:",
                               style: TextStyle(
-                                  fontSize: 24, color: Colors.white, fontWeight: FontWeight.bold),
+                                  fontSize: 24,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.symmetric(
-                                   vertical: 10),
+                            const Padding(
+                              padding: EdgeInsets.symmetric(vertical: 10),
                               child: Center(
                                 child: Text(
                                   "1.Reflecting telescopes date back to 1616.\n2.Newton's 1668 design was the first practical one.\n3.He introduced an angled secondary mirror for easier image viewing.\n4.This design is called a Newtonian Reflector.\n5.The Cassegrain Reflector uses a  different mirror arrangement, affecting light reflection.",
@@ -153,35 +154,45 @@ class _LevelZeroState extends State<LevelZero> {
                                 ),
                               ),
                             ),
-                             Text("Watch Video:",style: TextStyle(color: Colors.white,fontSize: 24,fontWeight:FontWeight.bold),),
+                            const Text(
+                              "Watch Video:",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.bold),
+                            ),
                             InkWell(
                                 onTap: () {
-                                  Get.to(VideoExample(
+                                  Get.to(const VideoExample(
                                     videoId: 'x8wrp34-IXA',
                                   ));
                                 },
-                                child: Container(
+                                child: SizedBox(
                                     height: 250,
-                                    width: MediaQuery.of(context).size.width * 1,
+                                    width:
+                                        MediaQuery.of(context).size.width * 1,
                                     child: Image.network(
                                         YoutubePlayer.getThumbnail(
                                             videoId: "x8wrp34-IXA")))),
-                                            Text("A refracting telescope uses a conv'x lens t'bend and focus light, which is then'magnifie'by a concave lens in the eyep'ece. Man'modern telescopes include a 'diagonal' mirror to angle the light for easier viewing",style: TextStyle(color: Colors.white),)
-
+                            const Text(
+                              "A refracting telescope uses a conv'x lens t'bend and focus light, which is then'magnifie'by a concave lens in the eyep'ece. Man'modern telescopes include a 'diagonal' mirror to angle the light for easier viewing",
+                              style: TextStyle(color: Colors.white),
+                            )
                           ],
                         )
                       : Column(
-                        // mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                          // mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
+                            const Text(
                               "Refractive Telescope:",
                               style: TextStyle(
-                                  fontSize: 24, color: Colors.white,fontWeight:FontWeight.bold),
+                                  fontSize: 24,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.symmetric(
-                                  vertical: 10),
+                            const Padding(
+                              padding: EdgeInsets.symmetric(vertical: 10),
                               child: Center(
                                 child: Text(
                                   "1.The first refracting telescopes  appeared in the Netherlands around 1608.\n2.Galileo improved and popularized the design in 1609\n3.He is often credited for the telescope's advancement.\n4.Galileo was the first to use a telescope for space study.\n5.He discovered Jupiter's four largest moons.",
@@ -190,22 +201,30 @@ class _LevelZeroState extends State<LevelZero> {
                                 ),
                               ),
                             ),
-
-                            Text("Watch Video:",style: TextStyle(color: Colors.white,fontSize: 24,fontWeight:FontWeight.bold),),
+                            const Text(
+                              "Watch Video:",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.bold),
+                            ),
                             InkWell(
                                 onTap: () {
-                                  Get.to(VideoExample(
+                                  Get.to(const VideoExample(
                                     videoId: 'uSC-71vXgh0',
                                   ));
                                 },
-                                child: Container(
-                                     height: 250,
-                                    width: MediaQuery.of(context).size.width * 1,
+                                child: SizedBox(
+                                    height: 250,
+                                    width:
+                                        MediaQuery.of(context).size.width * 1,
                                     child: Image.network(
                                         YoutubePlayer.getThumbnail(
                                             videoId: "uSC-71vXgh0")))),
-
-                                            Text("A refracting telescope uses a conv'x lens t'bend and focus light, which is then'magnifie'by a concave lens in the eyep'ece. Man'modern telescopes include a 'diagonal' mirror to angle the light for easier viewing",style: TextStyle(color: Colors.white),)
+                            const Text(
+                              "A refracting telescope uses a conv'x lens t'bend and focus light, which is then'magnifie'by a concave lens in the eyep'ece. Man'modern telescopes include a 'diagonal' mirror to angle the light for easier viewing",
+                              style: TextStyle(color: Colors.white),
+                            )
                           ],
                         ),
                 ],

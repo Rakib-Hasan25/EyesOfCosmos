@@ -17,7 +17,7 @@ class _VideoExampleState extends State<VideoExample> {
     super.initState();
     _controller = YoutubePlayerController(
       initialVideoId: widget.videoId, // Id of the YouTube video
-      flags: YoutubePlayerFlags(
+      flags: const YoutubePlayerFlags(
         autoPlay: false,
       ),
     );
@@ -26,11 +26,10 @@ class _VideoExampleState extends State<VideoExample> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       backgroundColor: Colors.black,
+      backgroundColor: Colors.black,
       appBar: AppBar(
         elevation: 0,
-        iconTheme: const IconThemeData(
-            color: Colors.white), 
+        iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: YoutubePlayerBuilder(
         player: YoutubePlayer(

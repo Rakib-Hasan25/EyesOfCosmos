@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:eyesofcosmos/presentation/widgets/scopeitoutgamelevel1card.dart';
 import 'package:flutter/material.dart';
 
@@ -54,11 +52,11 @@ class _LevelOneState extends State<LevelOne> {
                           }
                           setState(() {});
                         },
-                        child: Text(
+                        child: const Text(
                           "<Prev",
                           style: TextStyle(color: Colors.white, fontSize: 22),
                         )),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     InkWell(
@@ -68,7 +66,7 @@ class _LevelOneState extends State<LevelOne> {
                           }
                           setState(() {});
                         },
-                        child: Text("Next>",
+                        child: const Text("Next>",
                             style:
                                 TextStyle(color: Colors.white, fontSize: 22))),
                   ],
@@ -80,17 +78,23 @@ class _LevelOneState extends State<LevelOne> {
               height: 20,
             ),
             //  const Scopeitoutgamelevel1card(heading: "hi", description: "fsdfas", imageUrl: "fdsfs"),
-            
-            if(slidecontroller==1) Scopeitoutgamelevel1card(heading: "Observer of EyePiece",description: "sfd",imageUrl: "fsdf",),
-            if(slidecontroller==2) Scopeitoutgamelevel1card(heading: "Tripod",description: "sfd",imageUrl: "fsdf",),
-            
-            
-            
-            
-            
+
+            if (slidecontroller == 1)
+              const Scopeitoutgamelevel1card(
+                heading: "Observer of EyePiece",
+                description: "sfd",
+                imageUrl: "fsdf",
+              ),
+            if (slidecontroller == 2)
+              const Scopeitoutgamelevel1card(
+                heading: "Tripod",
+                description: "sfd",
+                imageUrl: "fsdf",
+              ),
+
             Text(
               '$slidecontroller',
-              style: TextStyle(fontSize: 40),
+              style: const TextStyle(fontSize: 40),
             ),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.02,

@@ -8,16 +8,31 @@ class Item {
   // String imageUrl;
   int id;
   String description;
+  // String img;
   // VoidCallback onTap;
 
-  Item({required this.id, required this.title, required this.description
-      // required this.imageUrl,
-      });
+  Item({
+    required this.id,
+    required this.title,
+    required this.description,
+    // required this.img
+    // required this.imageUrl,
+  });
 }
 
 List<Item> value = [
-  Item(id: 0, title: "Flutter", description: "sdfsa"),
-  Item(id: 1, title: "Rakib", description: "sdfasdf"),
+  Item(
+    id: 0,
+    title: "Optical Spectrometer",
+    description: "sdfsa",
+    // img:'assets/images/gamingsection/builtItYourself/level01/opticalspectrometer.jpg'
+  ),
+  Item(
+    id: 1,
+    title: "Optical Camera",
+    description: "sdfasdf",
+    // img:'assets/images/gamingsection/builtItYourself/level01/opticalcamera.jpg'
+  ),
 ];
 
 class BuildYourOwnLevel1Page3 extends StatefulWidget {
@@ -82,15 +97,15 @@ class _BuildYourOwnLevel1Page3State extends State<BuildYourOwnLevel1Page3> {
                     setState(() {});
                   },
                   child: Padding(
-                    padding: EdgeInsets.only(right: 10, bottom: 10),
+                    padding: const EdgeInsets.only(left: 50, bottom: 50),
                     child: Container(
                       width: 100,
                       height: specto_controller ? 100 : 90,
                       decoration: BoxDecoration(
                         border: Border.all(color: Colors.white),
-                        image: DecorationImage(
+                        image: const DecorationImage(
                           image: AssetImage(
-                              'assets/images/gamingsection/replectiveTelescope.png'),
+                              'assets/images/gamingsection/builtItYourself/level01/opticalspectrometer.png'),
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -100,9 +115,9 @@ class _BuildYourOwnLevel1Page3State extends State<BuildYourOwnLevel1Page3> {
                             left: 20,
                             bottom: 20,
                             child: Text(
-                              '${value[1].title}',
-                              style: TextStyle(
-                                color: Colors.red,
+                              value[0].title,
+                              style: const TextStyle(
+                                color: Color.fromARGB(255, 255, 255, 255),
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -121,19 +136,18 @@ class _BuildYourOwnLevel1Page3State extends State<BuildYourOwnLevel1Page3> {
                       camera_controller = true;
                       description_controller = 1;
                     }
-                    ;
                     setState(() {});
                   },
                   child: Padding(
-                    padding: EdgeInsets.only(right: 10, bottom: 10),
+                    padding: const EdgeInsets.only(right: 50, bottom: 50),
                     child: Container(
                       width: 100,
                       height: camera_controller ? 100 : 90,
                       decoration: BoxDecoration(
                         border: Border.all(color: Colors.white),
-                        image: DecorationImage(
+                        image: const DecorationImage(
                           image: AssetImage(
-                              'assets/images/gamingsection/replectiveTelescope.png'),
+                              'assets/images/gamingsection/builtItYourself/level01/opticalcamera.jpg'),
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -143,9 +157,9 @@ class _BuildYourOwnLevel1Page3State extends State<BuildYourOwnLevel1Page3> {
                             left: 20,
                             bottom: 20,
                             child: Text(
-                              '${value[0].title}',
-                              style: TextStyle(
-                                color: Colors.red,
+                              value[1].title,
+                              style: const TextStyle(
+                                color: Color.fromARGB(255, 255, 255, 255),
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -159,7 +173,7 @@ class _BuildYourOwnLevel1Page3State extends State<BuildYourOwnLevel1Page3> {
               ],
             ),
 
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Obx(() => Text('Current State: ${appController.myState}')),
@@ -167,8 +181,8 @@ class _BuildYourOwnLevel1Page3State extends State<BuildYourOwnLevel1Page3> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  "WebLength",
+                const Text(
+                  "Instruments",
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 30,
@@ -178,19 +192,23 @@ class _BuildYourOwnLevel1Page3State extends State<BuildYourOwnLevel1Page3> {
                   onTap: () {
                     // Get.to(BuildYourOwnLevel1Page2());
 
-                    if (camera_controller && specto_controller)
+                    if (camera_controller && specto_controller) {
                       appController.updateState2('11');
-                    if (specto_controller && camera_controller == false)
+                    }
+                    if (specto_controller && camera_controller == false) {
                       appController.updateState2('10');
-                    if (specto_controller == false && camera_controller)
+                    }
+                    if (specto_controller == false && camera_controller) {
                       appController.updateState2('01');
+                    }
                     if (specto_controller == false &&
-                        camera_controller == false)
+                        camera_controller == false) {
                       appController.updateState2('10');
-                    Get.to(BuildYourOwnLevel1Page4());
+                    }
+                    Get.to(const BuildYourOwnLevel1Page4());
                   },
-                  child: Text(
-                    "Next Page",
+                  child: const Text(
+                    "Next Step",
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 30,
@@ -202,9 +220,14 @@ class _BuildYourOwnLevel1Page3State extends State<BuildYourOwnLevel1Page3> {
             Container(
               height: MediaQuery.of(context).size.height * 0.3,
               width: MediaQuery.of(context).size.width * 1,
-              decoration: BoxDecoration(
-                  color: const Color.fromARGB(164, 255, 255, 255)),
-              child: Text(value[description_controller].description),
+              decoration:
+                  const BoxDecoration(color: Color.fromARGB(163, 0, 0, 0)),
+              child: Text(
+                value[description_controller].description,
+                style: const TextStyle(
+                  color: Colors.white,
+                ),
+              ),
             ),
 
             SizedBox(

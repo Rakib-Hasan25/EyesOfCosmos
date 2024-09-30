@@ -7,8 +7,6 @@ import 'package:eyesofcosmos/presentation/utils/image_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-
-
 class MainBottomNavScreen extends StatefulWidget {
   const MainBottomNavScreen({super.key});
 
@@ -17,30 +15,22 @@ class MainBottomNavScreen extends StatefulWidget {
 }
 
 class _MainBottomNavScreenState extends State<MainBottomNavScreen> {
-  
   final List<Widget> _screens = [
-    HomeScreen(),
-    JWSTCaptureLanding(),
-    HomeScreen(),
-    GamingSectionLanding(),
-    JwstmissionNews(),
-
-   
+    const HomeScreen(),
+    const JWSTCaptureLanding(),
+    const HomeScreen(),
+    const GamingSectionLanding(),
+    const JwstmissionNews(),
   ];
 
-
-
- 
- 
-
-@override
+  @override
   Widget build(BuildContext context) {
     return GetBuilder<MainBottomNavController>(builder: (controller) {
       return Scaffold(
-        backgroundColor: const Color.fromARGB(30,30,30,1).withOpacity(0.5),
+        backgroundColor: const Color.fromARGB(30, 30, 30, 1).withOpacity(0.5),
         body: _screens[controller.currentSelectedIndex],
         bottomNavigationBar: BottomNavigationBar(
-          backgroundColor: const Color.fromARGB(30,30,30,1),
+          backgroundColor: const Color.fromARGB(30, 30, 30, 1),
           currentIndex: controller.currentSelectedIndex,
           onTap: controller.changeScreen,
           selectedItemColor: Colors.blue.shade800,
@@ -49,22 +39,25 @@ class _MainBottomNavScreenState extends State<MainBottomNavScreen> {
           // showSelectedLabels: true,
           elevation: 4,
 
-          items:  [
-
-         BottomNavigationBarItem(
-          backgroundColor: Colors.black12,
-                icon:  Image.asset(ImageAssets.homeicon,height: 24,width: 24,), label: 'Home'),
+          items: [
             BottomNavigationBarItem(
-                icon: Image.asset(ImageAssets.jwstcaptureicon), label: 'JWST Capture'),
+                backgroundColor: Colors.black12,
+                icon: Image.asset(
+                  ImageAssets.homeicon,
+                  height: 24,
+                  width: 24,
+                ),
+                label: 'Home'),
+            BottomNavigationBarItem(
+                icon: Image.asset(ImageAssets.jwstcaptureicon),
+                label: 'JWST Capture'),
             BottomNavigationBarItem(
                 icon: Image.asset(ImageAssets.dviewsicon), label: '3D views'),
             BottomNavigationBarItem(
                 icon: Image.asset(ImageAssets.gamingicon), label: 'Game'),
-                
-                BottomNavigationBarItem(
-                icon:Image.asset(ImageAssets.newsicon), label: 'JWST Misson And News'),
-
-           
+            BottomNavigationBarItem(
+                icon: Image.asset(ImageAssets.newsicon),
+                label: 'JWST Misson And News'),
           ],
         ),
       );

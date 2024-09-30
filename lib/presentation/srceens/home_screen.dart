@@ -1,11 +1,9 @@
-import 'package:eyesofcosmos/presentation/srceens/flutter_web_view.dart';
 
 import 'package:eyesofcosmos/presentation/utils/image_assets.dart';
 import 'package:eyesofcosmos/presentation/widgets/Feature_card.dart';
 import 'package:eyesofcosmos/presentation/widgets/drawer_widget.dart';
 import 'package:eyesofcosmos/presentation/widgets/home_screen_trends_card.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:eyesofcosmos/data/model/top_trends_model.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -25,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
         iconTheme: const IconThemeData(
             color: Colors.white), // Set AppBar icons to white
       ),
-      drawer: DrawerWidget(),
+      drawer: const DrawerWidget(),
       body: Stack(
         fit: StackFit.expand,
         children: <Widget>[
@@ -71,11 +69,15 @@ class _HomeScreenState extends State<HomeScreen> {
               // SizedBox(
               //   height: MediaQuery.of(context).size.height * 0.2,
               // ),
-              SizedBox(height:10),
+              const SizedBox(height: 10),
 
               // const Spacer(),
-               FeaturedCard(text: "fgsdfg",),
-               SizedBox(height: 20,),
+              const FeaturedCard(
+                text: "fgsdfg",
+              ),
+              const SizedBox(
+                height: 20,
+              ),
 
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20),
@@ -110,11 +112,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Center(
-                  child: Container(
+                  child: SizedBox(
                       height: MediaQuery.of(context).size.height * 0.3,
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
@@ -124,9 +126,11 @@ class _HomeScreenState extends State<HomeScreen> {
                           return InkWell(
                             onTap: exploreItems[index].onTap,
                             child: Padding(
-                                padding: EdgeInsets.symmetric(
+                                padding: const EdgeInsets.symmetric(
                                     horizontal: 10, vertical: 5),
-                                child: HomeScreenTrendsCard(title:exploreItems[index].title,imageUrl:exploreItems[index].imageUrl)),
+                                child: HomeScreenTrendsCard(
+                                    title: exploreItems[index].title,
+                                    imageUrl: exploreItems[index].imageUrl)),
                           );
                         },
                       ))),

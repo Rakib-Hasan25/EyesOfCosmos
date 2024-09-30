@@ -22,7 +22,7 @@ class _JwstmissionNewsState extends State<JwstmissionNews> {
         iconTheme: const IconThemeData(
             color: Colors.white), // Set AppBar icons to white
       ),
-      drawer: DrawerWidget(),
+      drawer: const DrawerWidget(),
       body: Stack(
         fit: StackFit.expand,
         children: <Widget>[
@@ -53,11 +53,11 @@ class _JwstmissionNewsState extends State<JwstmissionNews> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Center(
-                child: Container(
+                child: SizedBox(
                   height: MediaQuery.of(context).size.height * 0.7,
                   child: ListView.builder(
                     scrollDirection: Axis.vertical,
@@ -65,15 +65,12 @@ class _JwstmissionNewsState extends State<JwstmissionNews> {
                     itemCount: 5,
                     itemBuilder: (context, index) {
                       return InkWell(
-                        onTap: ()=>{
-                          Get.to(NewsDetailsScreen())
-                        },
-                        child: Newscard());
+                          onTap: () => {Get.to(const NewsDetailsScreen())},
+                          child: const Newscard());
                     },
                   ),
                 ),
               ),
-              
             ],
           ),
         ],

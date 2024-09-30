@@ -10,18 +10,49 @@ class Item {
   int id;
   String description;
   // VoidCallback onTap;
+  String img;
 
-  Item({
-    required this.id,
-    required this.title,
-    required this.description
-    // required this.imageUrl,
-  });
+  Item(
+      {required this.id,
+      required this.title,
+      required this.description,
+      required this.img
+      // required this.imageUrl,
+      });
 }
 
 List<Item> value = [
-  Item(id: 0, title: "Flutter",description: "sdfsa" ),
-  Item(id: 1, title: "Rakib",description: "sdfasdf"),
+  Item(
+      id: 0,
+      title: "Infrared",
+      description: "sdfsa",
+      img: 'assets/images/gamingsection/builtItYourself/level01/infrared.jpg'),
+  Item(
+      id: 1,
+      title: "Optical",
+      description: "sdfasdf",
+      img: 'assets/images/gamingsection/builtItYourself/level01/optical.jpg'),
+  Item(
+      id: 2,
+      title: "Ultraviolet",
+      description: "sdfasdf",
+      img:
+          'assets/images/gamingsection/builtItYourself/level01/ultraviolet.jpg'),
+  Item(
+      id: 3,
+      title: "Microwave",
+      description: "sdfasdf",
+      img: 'assets/images/gamingsection/builtItYourself/level01/galaxy.jpg'),
+  Item(
+      id: 4,
+      title: "X-ray",
+      description: "sdfasdf",
+      img: 'assets/images/gamingsection/builtItYourself/level01/xray.jpg'),
+  Item(
+      id: 5,
+      title: "Gamma-Ray",
+      description: "sdfasdf",
+      img: 'assets/images/gamingsection/builtItYourself/level01/gamma.jpg'),
 ];
 
 class BuildYourOwnLevel1Page2 extends StatefulWidget {
@@ -39,10 +70,10 @@ class _BuildYourOwnLevel1Page2State extends State<BuildYourOwnLevel1Page2> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    appController.updateState('${controller}', 2);
+    appController.updateState('$controller', 2);
   }
+
   @override
-  
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
@@ -73,33 +104,32 @@ class _BuildYourOwnLevel1Page2State extends State<BuildYourOwnLevel1Page2> {
               ),
             ),
             const SizedBox(
-              height: 20,
+              height: 2,
             ),
-        
+
             Center(
-              child: Container(
+              child: SizedBox(
                 height: MediaQuery.of(context).size.height * 0.4,
                 width: MediaQuery.of(context).size.width * 0.8,
                 child: MasonryGridView.count(
-                    itemCount: 2,
-                    crossAxisCount: 2,
+                    itemCount: 6,
+                    crossAxisCount: 1,
                     itemBuilder: (BuildContext context, int index) {
                       return InkWell(
                         onTap: () {
                           controller = index;
                           setState(() {});
-                          appController.updateState('${controller}', 2);
+                          appController.updateState('$controller', 2);
                         },
                         child: Padding(
-                          padding: EdgeInsets.only(right: 10, bottom: 10),
+                          padding: const EdgeInsets.only(right: 10, bottom: 10),
                           child: Container(
                             width: 100,
                             height: controller == value[index].id ? 100 : 90,
                             decoration: BoxDecoration(
                               border: Border.all(color: Colors.white),
                               image: DecorationImage(
-                                image: AssetImage(
-                                    'assets/images/gamingsection/replectiveTelescope.png'),
+                                image: AssetImage(value[index].img),
                                 fit: BoxFit.cover,
                               ),
                             ),
@@ -109,8 +139,8 @@ class _BuildYourOwnLevel1Page2State extends State<BuildYourOwnLevel1Page2> {
                                   left: 20,
                                   bottom: 20,
                                   child: Text(
-                                    '${value[index].title}',
-                                    style: TextStyle(
+                                    value[index].title,
+                                    style: const TextStyle(
                                       color: Colors.red,
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold,
@@ -125,16 +155,16 @@ class _BuildYourOwnLevel1Page2State extends State<BuildYourOwnLevel1Page2> {
                     }),
               ),
             ),
-        
-            SizedBox(
+
+            const SizedBox(
               height: 10,
             ),
-        Obx(() => Text('Current State: ${appController.myState}')),
+            Obx(() => Text('Current State: ${appController.myState}')),
 
-          Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
+                const Text(
                   "WebLength",
                   style: TextStyle(
                       color: Colors.white,
@@ -143,10 +173,10 @@ class _BuildYourOwnLevel1Page2State extends State<BuildYourOwnLevel1Page2> {
                 ),
                 InkWell(
                   onTap: () {
-                    Get.to(BuildYourOwnLevel1Page3());
+                    Get.to(const BuildYourOwnLevel1Page3());
                   },
-                  child: Text(
-                    "Next Page",
+                  child: const Text(
+                    "Next Step",
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 30,
@@ -156,15 +186,18 @@ class _BuildYourOwnLevel1Page2State extends State<BuildYourOwnLevel1Page2> {
               ],
             ),
             Container(
-               height: MediaQuery.of(context).size.height * 0.3,
-                width: MediaQuery.of(context).size.width * 1,
-                decoration: BoxDecoration(color: const Color.fromARGB(164, 255, 255, 255)
+              height: MediaQuery.of(context).size.height * 0.3,
+              width: MediaQuery.of(context).size.width * 1,
+              decoration:
+                  const BoxDecoration(color: Color.fromARGB(163, 22, 21, 21)),
+              child: Text(
+                value[controller].description,
+                style: const TextStyle(
+                  color: Colors.white,
                 ),
-                child: Text(value[controller].description),
+              ),
             ),
-        
-          
-        
+
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.02,
             ),

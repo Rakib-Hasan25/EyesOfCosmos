@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 
 class ScopeItOurGameLevel {
   String title;
- 
+
   VoidCallback onTap;
 
   ScopeItOurGameLevel({required this.title, required this.onTap});
@@ -14,31 +14,26 @@ class ScopeItOurGameLevel {
 List<ScopeItOurGameLevel> scopeItOurGameLevels = [
   ScopeItOurGameLevel(
     title: 'Level Zero',
-    
     onTap: () {
-      Get.to(LevelZero());
+      Get.to(const LevelZero());
     },
   ),
   ScopeItOurGameLevel(
     title: 'Level One',
-   
     onTap: () {
-      Get.to(LevelOne());
+      Get.to(const LevelOne());
     },
   ),
   ScopeItOurGameLevel(
     title: 'Level Two',
-
     onTap: () {},
   ),
-    ScopeItOurGameLevel(
+  ScopeItOurGameLevel(
     title: 'Level Three',
-
     onTap: () {},
   ),
-    ScopeItOurGameLevel(
+  ScopeItOurGameLevel(
     title: 'Level Four',
-
     onTap: () {},
   )
 ];

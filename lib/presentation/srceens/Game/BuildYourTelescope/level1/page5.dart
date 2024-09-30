@@ -1,9 +1,6 @@
 import 'package:eyesofcosmos/application/controllers/buildyourtelescopevaluecontroller.dart';
-import 'package:eyesofcosmos/presentation/srceens/Game/BuildYourTelescope/level1/page2.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
-
 
 class BuildTelescopeLevel1FinalScreen extends StatefulWidget {
   const BuildTelescopeLevel1FinalScreen({super.key});
@@ -13,18 +10,22 @@ class BuildTelescopeLevel1FinalScreen extends StatefulWidget {
       _BuildTelescopeLevel1FinalScreenState();
 }
 
-class _BuildTelescopeLevel1FinalScreenState extends State<BuildTelescopeLevel1FinalScreen> {
+class _BuildTelescopeLevel1FinalScreenState
+    extends State<BuildTelescopeLevel1FinalScreen> {
   final Buildyourtelescopevaluecontroller appController = Get.find();
+
+  String currentState = '';
 
   @override
   void initState() {
-    // TODO: implement initState
-    void initState() {
-    // TODO: implement initState
     super.initState();
-   
+    currentState = appController.myState.value; // Initial state from controller
   }
-    super.initState();
+
+  void updateState(String newState) {
+    setState(() {
+      currentState = newState;
+    });
   }
 
   @override
@@ -32,17 +33,13 @@ class _BuildTelescopeLevel1FinalScreenState extends State<BuildTelescopeLevel1Fi
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        // backgroundColor: Colors.black12,
         elevation: 0,
-        iconTheme: const IconThemeData(
-            color: Colors.white), // Set AppBar icons to white
+        iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: SingleChildScrollView(
         child: Column(
-          // mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-       
             const Padding(
               padding: EdgeInsets.only(left: 20, bottom: 20),
               child: Text(
@@ -55,21 +52,26 @@ class _BuildTelescopeLevel1FinalScreenState extends State<BuildTelescopeLevel1Fi
                 ),
               ),
             ),
-            const SizedBox(
-              height: 20,
+            const SizedBox(height: 20),
+
+            // Display different images based on the state without using Obx
+            Center(
+              child: Container(
+                height: 300,
+                width: 200,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(getImageForState(currentState)),
+                    fit: BoxFit.cover, // Using BoxFit to fit the image
+                  ),
+                ),
+              ),
             ),
 
-           
+            const SizedBox(height: 10),
 
-            SizedBox(
-              height: 10,
-            ),
-            Obx(() => Text('Current State: ${appController.myState}',style: TextStyle(fontSize: 40,color: Colors.white),)),
-
-          
-
-            
-
+            // Optional: Display the current state
+            // R
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.02,
             ),
@@ -77,5 +79,17 @@ class _BuildTelescopeLevel1FinalScreenState extends State<BuildTelescopeLevel1Fi
         ),
       ),
     );
+  }
+
+  // Function to get the image path based on the current state
+  String getImageForState(String state) {
+    switch (state) {
+      case '10002':
+        return 'assets/images/gamingsection/builtItYourself/level01/opticalir.jpg';
+      case '33022':
+        return 'assets/images/gamingsection/builtItYourself/level01/opticalir.jpg';
+      default:
+        return 'assets/images/gamingsection/builtItYourself/level01/opticalir.png';
+    }
   }
 }

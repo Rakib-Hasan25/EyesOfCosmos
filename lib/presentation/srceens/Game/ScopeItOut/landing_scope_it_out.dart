@@ -17,7 +17,6 @@ class ScopeItOutLanding extends StatelessWidget {
         iconTheme: const IconThemeData(
             color: Colors.white), // Set AppBar icons to white
       ),
-      
       body: Stack(
         fit: StackFit.expand,
         children: <Widget>[
@@ -37,7 +36,7 @@ class ScopeItOutLanding extends StatelessWidget {
               //   height: MediaQuery.of(context).size.height * 0.09,
               // ),
               const Padding(
-                padding: EdgeInsets.only(left: 20,bottom:20),
+                padding: EdgeInsets.only(left: 20, bottom: 20),
                 child: Text(
                   'Learn About Telescope',
                   textAlign: TextAlign.left,
@@ -49,15 +48,16 @@ class ScopeItOutLanding extends StatelessWidget {
                 ),
               ),
 
-              
-
               // const Spacer(),
-              GamingFeatureCard(text: 'This game teaches the player the basic concepts behind telescope design. The Webb Telescope may be unusual in appearance - but it has a lot in common with simple tube-shaped telescopes. The game includes an introduction to different types of telescopes and two telescope matching interactions',),
+              const GamingFeatureCard(
+                text:
+                    'This game teaches the player the basic concepts behind telescope design. The Webb Telescope may be unusual in appearance - but it has a lot in common with simple tube-shaped telescopes. The game includes an introduction to different types of telescopes and two telescope matching interactions',
+              ),
               const SizedBox(
                 height: 20,
               ),
               Center(
-                  child: Container(
+                  child: SizedBox(
                       height: MediaQuery.of(context).size.height * 0.46,
                       child: ListView.builder(
                         scrollDirection: Axis.vertical,
@@ -65,12 +65,14 @@ class ScopeItOutLanding extends StatelessWidget {
                         itemCount: scopeItOurGameLevels.length,
                         itemBuilder: (context, index) {
                           return InkWell(
-                            onTap: scopeItOurGameLevels[index].onTap,
-                            child: Padding(
+                              onTap: scopeItOurGameLevels[index].onTap,
+                              child: Padding(
                                 padding: const EdgeInsets.symmetric(
                                     horizontal: 10, vertical: 5),
-                                child: LevelCard(text: scopeItOurGameLevels[index].title ,),
-                          ));
+                                child: LevelCard(
+                                  text: scopeItOurGameLevels[index].title,
+                                ),
+                              ));
                         },
                       ))),
               SizedBox(

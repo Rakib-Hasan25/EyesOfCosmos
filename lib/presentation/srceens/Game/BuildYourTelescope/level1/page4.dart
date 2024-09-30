@@ -12,17 +12,13 @@ class Item {
   String description;
   // VoidCallback onTap;
 
-  Item({
-    required this.id,
-    required this.title,
-    required this.description
-    // required this.imageUrl,
-  });
+  Item({required this.id, required this.title, required this.description
+      // required this.imageUrl,
+      });
 }
 
 List<Item> value = [
-  Item(id: 0, title: "Flutter",description: "sdfsa" ),
-  Item(id: 1, title: "Rakib",description: "sdfasdf"),
+  Item(id: 0, title: "Single Primary", description: "sdfsa"),
 ];
 
 class BuildYourOwnLevel1Page4 extends StatefulWidget {
@@ -41,8 +37,9 @@ class _BuildYourOwnLevel1Page4State extends State<BuildYourOwnLevel1Page4> {
   void initState() {
     // TODO: implement initState
     super.initState();
-     appController.updateState('${controller}', 5);
+    appController.updateState('$controller', 5);
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,7 +61,7 @@ class _BuildYourOwnLevel1Page4State extends State<BuildYourOwnLevel1Page4> {
             const Padding(
               padding: EdgeInsets.only(left: 20, bottom: 20),
               child: Text(
-                'What wavelength do you want to use? You may only choose ONE.',
+                'Choose the type of optics you would like for each instrument selected.',
                 textAlign: TextAlign.left,
                 style: TextStyle(
                   color: Colors.white,
@@ -76,31 +73,31 @@ class _BuildYourOwnLevel1Page4State extends State<BuildYourOwnLevel1Page4> {
             const SizedBox(
               height: 20,
             ),
-        
+
             Center(
-              child: Container(
+              child: SizedBox(
                 height: MediaQuery.of(context).size.height * 0.4,
                 width: MediaQuery.of(context).size.width * 0.8,
                 child: MasonryGridView.count(
-                    itemCount: 2,
+                    itemCount: 1,
                     crossAxisCount: 2,
                     itemBuilder: (BuildContext context, int index) {
                       return InkWell(
                         onTap: () {
                           controller = index;
                           setState(() {});
-                          appController.updateState('${controller}', 5);
+                          appController.updateState('$controller', 5);
                         },
                         child: Padding(
-                          padding: EdgeInsets.only(right: 10, bottom: 10),
+                          padding: const EdgeInsets.only(right: 10, bottom: 10),
                           child: Container(
                             width: 100,
                             height: controller == value[index].id ? 100 : 90,
                             decoration: BoxDecoration(
                               border: Border.all(color: Colors.white),
-                              image: DecorationImage(
+                              image: const DecorationImage(
                                 image: AssetImage(
-                                    'assets/images/gamingsection/replectiveTelescope.png'),
+                                    'assets/images/gamingsection/builtItYourself/level01/primary.jpg'),
                                 fit: BoxFit.cover,
                               ),
                             ),
@@ -110,9 +107,9 @@ class _BuildYourOwnLevel1Page4State extends State<BuildYourOwnLevel1Page4> {
                                   left: 20,
                                   bottom: 20,
                                   child: Text(
-                                    '${value[index].title}',
-                                    style: TextStyle(
-                                      color: Colors.red,
+                                    value[index].title,
+                                    style: const TextStyle(
+                                      color: Color.fromARGB(255, 255, 255, 255),
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -126,17 +123,17 @@ class _BuildYourOwnLevel1Page4State extends State<BuildYourOwnLevel1Page4> {
                     }),
               ),
             ),
-        
-            SizedBox(
+
+            const SizedBox(
               height: 10,
             ),
-        Obx(() => Text('Current State: ${appController.myState}')),
+            Obx(() => Text('Current State: ${appController.myState}')),
 
-          Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  "WebLength",
+                const Text(
+                  "Optics",
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 30,
@@ -144,10 +141,10 @@ class _BuildYourOwnLevel1Page4State extends State<BuildYourOwnLevel1Page4> {
                 ),
                 InkWell(
                   onTap: () {
-                    Get.to( BuildTelescopeLevel1FinalScreen());
+                    Get.to(const BuildTelescopeLevel1FinalScreen());
                   },
-                  child: Text(
-                    "Next Page",
+                  child: const Text(
+                    "Next Step",
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 30,
@@ -157,15 +154,18 @@ class _BuildYourOwnLevel1Page4State extends State<BuildYourOwnLevel1Page4> {
               ],
             ),
             Container(
-               height: MediaQuery.of(context).size.height * 0.3,
-                width: MediaQuery.of(context).size.width * 1,
-                decoration: BoxDecoration(color: const Color.fromARGB(164, 255, 255, 255)
+              height: MediaQuery.of(context).size.height * 0.3,
+              width: MediaQuery.of(context).size.width * 1,
+              decoration: const BoxDecoration(
+                  color: Color.fromARGB(255, 255, 255, 255)),
+              child: Text(
+                value[controller].description,
+                style: const TextStyle(
+                  color: Colors.white,
                 ),
-                child: Text(value[controller].description),
+              ),
             ),
-        
-          
-        
+
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.02,
             ),

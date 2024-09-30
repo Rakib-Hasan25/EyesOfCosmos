@@ -21,14 +21,14 @@ List<GameItem> gameItems = [
     title: 'Scope it \nout 2',
     imageUrl: 'assets/images/gamingsection/scopeitout.png',
     onTap: () {
-      Get.to(ScopeItOutLanding());
+      Get.to(const ScopeItOutLanding());
     },
   ),
   GameItem(
     title: 'Build Your \nTelescope',
     imageUrl: 'assets/images/gamingsection/buildyourtelescope.png',
     onTap: () {
-      Get.to(BuildYourTelescopeLanding());
+      Get.to(const BuildYourTelescopeLanding());
     },
   ),
 ];
