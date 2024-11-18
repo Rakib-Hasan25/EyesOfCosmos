@@ -153,13 +153,14 @@ class _BuildYourOwnLevel1Page4State extends State<BuildYourOwnLevel1Page4> {
                 ),
                 OutlinedButton(
                   child: Text(
-                    "Next Page",
+                    "Next Step",
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 20,
                         fontWeight: FontWeight.bold),
                   ),
                   onPressed: () {
+                    // @TODO: Fix this error
                     Get.to(BuildTelescopeLevel1FinalScreen());
                   },
                 ),
